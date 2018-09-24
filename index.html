@@ -88,7 +88,8 @@
 	// again scaleOrdinal
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-	d3.dsv(",", "iris.csv", function(d) {
+	d3.dsv(",", "iris.csv", function(error, data){ 
+	function(d) {
 		return {
 			//year: new Date(+d.Year, 0, 1), // convert "Year" column to Date
 			//make: d.Make,
