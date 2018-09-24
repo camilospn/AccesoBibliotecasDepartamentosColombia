@@ -88,8 +88,7 @@
 	// again scaleOrdinal
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-	d3.dsv(",", "iris.csv", function(error, data){ 
-	function(d) {
+	d3.dsv(",", "iris.csv", function(d) {
 		return {
 			//year: new Date(+d.Year, 0, 1), // convert "Year" column to Date
 			//make: d.Make,
@@ -102,16 +101,9 @@
 		};
 	}).then(function(data) {
 		console.log(data);
-	});
-	//d3.csv(",","iris.csv", function(error, data){
-		//data.forEach(function(d){
-			// d.SepalLength = +d.SepalLength;
-			 //d.SepalWidth = +d.SepalWidth;
-			 //d.PetalLength = +d.PetalLength;
-			 //d.Species = d.Name;
-		//});
-
-		xScale.domain(d3.extent(data, function(d){
+		
+		//ahora va aqui el chart
+			xScale.domain(d3.extent(data, function(d){
 			return d.SepalLength;
 		})).nice();
 
@@ -201,6 +193,25 @@
 				})
 				.style('opacity', 1);
 		})
+		
+		
+	});
+	
+	//d3.csv(",","iris.csv", function(error, data){
+		//data.forEach(function(d){
+			// d.SepalLength = +d.SepalLength;
+			 //d.SepalWidth = +d.SepalWidth;
+			 //d.PetalLength = +d.PetalLength;
+			 //d.Species = d.Name;
+		//});
+		
+		//d3.csv('iris.csv')
+  //.then(function(data) {
+      // data is now whole data set
+      // draw chart in here!
+  //})
+
+	
 
 </script>
 	
