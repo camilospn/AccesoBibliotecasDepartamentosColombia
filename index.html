@@ -88,13 +88,27 @@
 	// again scaleOrdinal
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-	d3.csv('iris.csv', function(error, data){
-		data.forEach(function(d){
-			 d.SepalLength = +d.SepalLength;
-			 d.SepalWidth = +d.SepalWidth;
-			 d.PetalLength = +d.PetalLength;
-			 d.Species = d.Name;
-		});
+	d3.dsv(",", "iris.csv", function(d) {
+		return {
+			//year: new Date(+d.Year, 0, 1), // convert "Year" column to Date
+			//make: d.Make,
+			//model: d.Model,
+			//length: +d.Length // convert "Length" column to number
+			SepalLength : +d.SepalLength,
+			SepalWidth : +d.SepalWidth,
+			PetalLength : +d.PetalLength,
+			Species : d.Name
+		};
+	}).then(function(data) {
+		console.log(data);
+	});
+	//d3.csv(",","iris.csv", function(error, data){
+		//data.forEach(function(d){
+			// d.SepalLength = +d.SepalLength;
+			 //d.SepalWidth = +d.SepalWidth;
+			 //d.PetalLength = +d.PetalLength;
+			 //d.Species = d.Name;
+		//});
 
 		xScale.domain(d3.extent(data, function(d){
 			return d.SepalLength;
