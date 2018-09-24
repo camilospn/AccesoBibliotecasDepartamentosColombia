@@ -88,27 +88,27 @@
 	// again scaleOrdinal
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-	d3.dsv(",", "datos.csv", function(d) {
+	d3.dsv(",", "iris.csv", function(d) {
 		return {
 			//year: new Date(+d.Year, 0, 1), // convert "Year" column to Date
 			//make: d.Make,
 			//model: d.Model,
 			//length: +d.Length // convert "Length" column to number
-			Departamento : d.Departamento,
-			Habitantes : +d.Habitantes,
-			Bibliotecas : +d.Bibliotecas
-			
+			SepalLength : +d.SepalLength,
+			SepalWidth : +d.SepalWidth,
+			PetalLength : +d.PetalLength,
+			Species : d.Name
 		};
 	}).then(function(data) {
 		console.log(data);
 		
 		//ahora va aqui el chart
 			xScale.domain(d3.extent(data, function(d){
-			return d.Habitantes;
+			return d.SepalLength;
 		})).nice();
 
 		yScale.domain(d3.extent(data, function(d){
-			return d.Bibliotecas;
+			return d.SepalWidth;
 		})).nice();
 
 		radius.domain(d3.extent(data, function(d){
@@ -132,15 +132,15 @@
 			.data(data)
 			.enter().append('circle')
 			.attr('class', 'bubble')
-			.attr('cx', function(d){return xScale(d.Habitantes);})
-			.attr('cy', function(d){ return yScale(d.Bibliotecas); })
-			//.attr('r', function(d){ return radius(d.PetalLength); })
+			.attr('cx', function(d){return xScale(d.SepalLength);})
+			.attr('cy', function(d){ return yScale(d.SepalWidth); })
+			.attr('r', function(d){ return radius(d.PetalLength); })
 			.style('fill', function(d){ return color(d.Species); });
 
 		bubble.append('title')
-			//.attr('x', function(d){ return radius(d.PetalLength); })
+			.attr('x', function(d){ return radius(d.PetalLength); })
 			.text(function(d){
-				return d.Departamento;
+				return d.Species;
 			});
 
 		// adding label. For x-axis, it's at (10, 10), and for y-axis at (width, height-10).
@@ -148,7 +148,7 @@
 			.attr('x', 10)
 			.attr('y', 10)
 			.attr('class', 'label')
-			.text('Bibliotecas');
+			.text('Sepal Width');
 
 
 		svg.append('text')
@@ -156,7 +156,7 @@
 			.attr('y', height - 10)
 			.attr('text-anchor', 'end')
 			.attr('class', 'label')
-			.text('Habitantes');
+			.text('Sepal Length');
 
 		// I feel I understand legends much better now.
 		// define a group element for each color i, and translate it to (0, i * 20). 
