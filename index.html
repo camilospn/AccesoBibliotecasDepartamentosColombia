@@ -103,7 +103,8 @@
 		console.log(data);
 		
 		//ahora va aqui el chart
-			xScale.domain(d3.extent(data, function(d){
+		
+		xScale.domain(d3.extent(data, function(d){
 			return d.Habitantes;
 		})).nice();
 
