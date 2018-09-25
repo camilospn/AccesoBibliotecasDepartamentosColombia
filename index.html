@@ -142,13 +142,25 @@
 			.attr('cx', function(d){return xScale(d.Habitantes);})
 			.attr('cy', function(d){ return yScale(d.Bibliotecas); })
 			.attr('r', function(d){ return 8; })
-			.style('fill', function(d){ return colorScale(d.Region); });
-
-		bubble.append('title')
-			//.attr('x', function(d){ return radius(d.PetalLength); })
-			.text(function(d){
-				return d.Departamento;
+			.style('fill', function(d){ return colorScale(d.Region); })
+			.on("mouseover", function(d) {
+				div.transition()
+				.duration(200)
+				.style("opacity", .9);
+				div.html("<br/>Departamento: "+d.Departamento +"<br/>Habitantes: "+d.Habitantes + "<br/>Bibliotecas públicas: " + d.Bibliotecas)
+				.style("left", (d3.event.pageX) + "px")
+				.style("top", (d3.event.pageY - 28) + "px");
+			})
+			.on("mouseout", function(d) {
+				div.transition()
+				.duration(500)
+				.style("opacity", 0);
 			});
+
+		//bubble.append('title')
+			//.text(function(d){
+				//return d.Departamento;
+			//});
 
 		// adding label. For x-axis, it's at (10, 10), and for y-axis at (width, height-10).
 		svg.append('text')
@@ -203,22 +215,6 @@
 		
 		
 	});
-	
-	//d3.csv(",","iris.csv", function(error, data){
-		//data.forEach(function(d){
-			// d.SepalLength = +d.SepalLength;
-			 //d.SepalWidth = +d.SepalWidth;
-			 //d.PetalLength = +d.PetalLength;
-			 //d.Species = d.Name;
-		//});
-		
-		//d3.csv('iris.csv')
-  //.then(function(data) {
-      // data is now whole data set
-      // draw chart in here!
-  //})
-
-	
 
 </script>
 	
