@@ -73,7 +73,7 @@
 			color: white;
 			padding: 1em 1.5em;
 			text-decoration: none;
-			text-transform: uppercase;
+			
 		}
 		
 	</style>
@@ -212,9 +212,9 @@
 			.text(function(d){ return d; });
 
 		//boton para reestablecer			
-		svg.append('text')
+		svg.append('span')
 			.attr('x', width)
-			.attr('y', height - 320)
+			.attr('y', height - 310)
 			.attr('text-anchor', 'end')
 			.attr('class', 'buttonR')
 			.text('Reestablecer') 	// quitar el filtro
