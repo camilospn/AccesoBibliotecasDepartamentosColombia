@@ -59,7 +59,7 @@
 		  height: 70px;
 		  padding: 2px;
 		  font: 12px sans-serif;
-		  background: #4b535e;
+		  background: #0c0c0c;
 		  color: white;
 		  border: 0px;
 		  border-radius: 8px;
@@ -74,8 +74,21 @@
 		
 	</style>
 	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="jumbotron text-center">
+<h2>DE NUEVO LOS ROLOS <br/>SE QUEDAN ATRÁS DE LOS PAISAS... <br/>y del resto del país.</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1" id="viz">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    
 
 <script type="text/javascript">
 	var margin = {top: 30, right: 50, bottom: 40, left:40};
@@ -86,7 +99,7 @@
     .attr("class", "tooltip")
     .style("opacity", 0);
 	
-	var svg = d3.select('body')
+	var svg = d3.select('#viz')
 		.append('svg')
 		.attr('width', width + margin.left + margin.right)
 		.attr('height', height + margin.top + margin.bottom)
@@ -229,7 +242,7 @@
 		//titulo de la leyenda
 		svg.append('text')
 			.attr('x', width + 16)
-			.attr('y', height - 385)
+			.attr('y', height - 390)
 			.attr('text-anchor', 'end')
 			.attr('class', 'buttonR')
 			.text('Regiones de Colombia');
@@ -250,6 +263,9 @@
 
 </script>
 	
+	</div>
+	</div>
+	</div>
 </body>
 </html>
 
