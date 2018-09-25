@@ -66,6 +66,12 @@
 		  pointer-events: none;
 		}
 		
+		.buttonR {
+			font-size: 13px;
+			fill: #333;
+			background-color: #FFFF00;
+		}
+		
 	</style>
 	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 </head>
@@ -212,7 +218,7 @@
 			
 		svg.append('text')
 			.attr('x', width)
-			.attr('y', height - 200)
+			.attr('y', height - 300)
 			.attr('text-anchor', 'end')
 			.attr('class', 'buttonR')
 			.text('Reestablecer') 	// quitar el filtro
