@@ -187,7 +187,7 @@
 			.data(colorScale.domain())
 			.enter().append('g')
 			.attr('class', 'legend')
-			.attr('transform', function(d,i){ return 'translate(0,' + i * 20 + ')'; });
+			.attr('transform', function(d,i){ return 'translate(0,' + (50 + i * 20) + ')'; });
 
 		// give x value equal to the legend elements. 
 		// no need to define a function for fill, this is automatically fill by color.
