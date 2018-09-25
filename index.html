@@ -68,12 +68,7 @@
 		
 		.buttonR {
 			font-size: 13px;
-			fill: #333;
-			background-color: red;
-			color: white;
-			padding: 1em 1.5em;
-			text-decoration: none;
-			
+			fill: #333;					
 		}
 		
 	</style>
@@ -212,7 +207,14 @@
 			.text(function(d){ return d; });
 
 		//boton para reestablecer			
-		svg.append('span')
+		svg.append('rect')
+			.attr('x', width)
+			.attr('y', height - 310)
+			.attr('width', 180)
+			.attr('height', 20)
+			.style('fill', 'steelblue');
+
+		svg.append('text')
 			.attr('x', width)
 			.attr('y', height - 310)
 			.attr('text-anchor', 'end')
@@ -222,6 +224,7 @@
 			d3.selectAll('.bubble')
 				.style('opacity', 1);
 		})
+		
 			
 		// d3 has a filter fnction similar to filter function in JS. Here it is used to filter d3 components.
 		legend.on('click', function(type){
