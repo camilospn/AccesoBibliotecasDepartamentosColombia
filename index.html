@@ -96,7 +96,8 @@
 			//length: +d.Length // convert "Length" column to number
 			Departamento : d.Departamento,
 			Habitantes : +d.Habitantes,
-			Bibliotecas : +d.Bibliotecas
+			Bibliotecas : +d.Bibliotecas,
+			Region : d.Region
 			
 		};
 	}).then(function(data) {
@@ -136,7 +137,7 @@
 			.attr('cx', function(d){return xScale(d.Habitantes);})
 			.attr('cy', function(d){ return yScale(d.Bibliotecas); })
 			.attr('r', function(d){ return 8; })
-			.style('fill', function(d){ return color(d.Species); });
+			.style('fill', function(d){ return color(d.Region); });
 
 		bubble.append('title')
 			//.attr('x', function(d){ return radius(d.PetalLength); })
@@ -190,7 +191,7 @@
 			d3.selectAll('.bubble')
 				.style('opacity', 0.15)
 				.filter(function(d){
-					return d.Species == type;
+					return d.Region == type;
 				})
 				.style('opacity', 1);
 		})

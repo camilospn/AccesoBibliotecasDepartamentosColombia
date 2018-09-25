@@ -1,34 +1,34 @@
-Departamento,Habitantes,Bibliotecas
-Amazonas,77948,3
-Antioquia,6613118,177
-Arauca,267992,7
-Archipiélago de San Andrés,77759,3
-Atlantico,2517897,33
-Bogota,8080734,19
-Bolivar,2146696,68
-Boyaca,1279955,125
-Caldas,991860,40
-Caqueta,490056,17
-Casanare,368989,22
-Cauca,1404205,59
-Cesar,1053475,30
-Choco,510047,33
-Cordoba,1762530,35
-Cundinamarca,2762784,151
-Guainia,42777,1
-Guaviare,114207,6
-Huila,1182944,41
-La Guajira,1012926,21
-Magdalena,1285384,34
-Meta,998162,32
-Nariño,1787545,77
-Norte de Santander,1379533,52
-Putumayo,354094,18
-Quindio,571733,13
-Risaralda,962529,18
-Santander,2080938,93
-Sucre,868438,30
-Tolima,1416124,68
-Valle del Cauca,4708262,120
-Vaupes,44500,4
-Vichada,75468,5
+Departamento,Habitantes,Bibliotecas,Region
+Amazonas,77948,3,Amazonas
+Antioquia,6613118,177,Andina
+Arauca,267992,7,Orinoco
+Archipiélago de San Andrés,77759,3,Caribe
+Atlantico,2517897,33,Caribe
+Bogota,8080734,19,Andina
+Bolivar,2146696,68,Caribe
+Boyaca,1279955,125,Andina
+Caldas,991860,40,Andina
+Caqueta,490056,17,Amazonas
+Casanare,368989,22,Orinoco
+Cauca,1404205,59,Pacifica
+Cesar,1053475,30,Caribe
+Choco,510047,33,Pacifica
+Cordoba,1762530,35,Caribe
+Cundinamarca,2762784,151,Andina
+Guainia,42777,1,Amazonas
+Guaviare,114207,6,Amazonas
+Huila,1182944,41,Andina
+La Guajira,1012926,21,Caribe
+Magdalena,1285384,34,Caribe
+Meta,998162,32,Orinoco
+Nariño,1787545,77,Pacifica
+Norte de Santander,1379533,52,Andina
+Putumayo,354094,18,Amazonas
+Quindio,571733,13,Andina
+Risaralda,962529,18,Andina
+Santander,2080938,93,Andina
+Sucre,868438,30,Caribe
+Tolima,1416124,68,Andina
+Valle del Cauca,4708262,120,Pacifica
+Vaupes,44500,4,Amazonas
+Vichada,75468,5,Orinoco
