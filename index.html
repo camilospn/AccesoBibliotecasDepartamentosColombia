@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<meta charset="UTF-8">
 	<title>Scatterplot d3v4</title>
 	<style type="text/css">
@@ -49,36 +50,27 @@
 
 		.legeng:hover rect{
 			fill-opacity:1;
+		}		
+
+		div.tooltip {
+		  position: absolute;
+		  text-align: center;
+		  width: 180px;
+		  height: 90px;
+		  padding: 2px;
+		  font: 12px sans-serif;
+		  background: #4b535e;
+		  color: white;
+		  border: 0px;
+		  border-radius: 8px;
+		  pointer-events: none;
 		}
-		
-		
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
-}
-
-div.tooltip {
-  position: absolute;
-  text-align: center;
-  width: 180px;
-  height: 60px;
-  padding: 2px;
-  font: 12px sans-serif;
-  background: #4b535e;
-  color: white;
-  border: 0px;
-  border-radius: 8px;
-  pointer-events: none;
-}
-
-
 		
 	</style>
 	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
+
 <script type="text/javascript">
 	var margin = {top: 30, right: 50, bottom: 40, left:40};
 	var width = 960 - margin.left - margin.right;
@@ -94,7 +86,6 @@ div.tooltip {
 		.attr('height', height + margin.top + margin.bottom)
 	.append('g')
 		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-
 
 	// The API for scales have changed in v4. There is a separate module d3-scale which can be used instead. The main change here is instead of d3.scale.linear, we have d3.scaleLinear.
 	var xScale = d3.scaleLinear()
@@ -116,14 +107,9 @@ div.tooltip {
 
 	// again scaleOrdinal
 	var colorScale = d3.scaleOrdinal(["#AC30C0", "#A07A19", "#EB9A72", "#BA86F5", "#EA22A8"]);
-	//const colors = d3.scaleOrdinal.range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
 
 	d3.dsv(",", "datos.csv", function(d) {
 		return {
-			//year: new Date(+d.Year, 0, 1), // convert "Year" column to Date
-			//make: d.Make,
-			//model: d.Model,
-			//length: +d.Length // convert "Length" column to number
 			Departamento : d.Departamento,
 			Habitantes : +d.Habitantes,
 			Bibliotecas : +d.Bibliotecas,
@@ -134,7 +120,6 @@ div.tooltip {
 		console.log(data);
 		
 		//ahora va aqui el chart
-		
 		xScale.domain(d3.extent(data, function(d){
 			return d.Habitantes;
 		})).nice();
@@ -143,14 +128,6 @@ div.tooltip {
 			return d.Bibliotecas;
 		})).nice();
 		
-		//colorScale.domain(d3.extent(data, function(d){
-			//return d.Region;
-		//})).nice()
-
-		//radius.domain(d3.extent(data, function(d){
-			//return d.PetalLength;
-		//})).nice();
-
 		// adding axes is also simpler now, just translate x-axis to (0,height) and it's alread defined to be a bottom axis. 
 		svg.append('g')
 			.attr('transform', 'translate(0,' + height + ')')
@@ -162,7 +139,6 @@ div.tooltip {
 			.attr('transform', 'translate(0,0)')
 			.attr('class', 'y axis')
 			.call(yAxis);
-
 
 		var bubble = svg.selectAll('.bubble')
 			.data(data)
@@ -186,18 +162,12 @@ div.tooltip {
 				.style("opacity", 0);
 			});
 
-		//bubble.append('title')
-			//.text(function(d){
-				//return d.Departamento;
-			//});
-
 		// adding label. For x-axis, it's at (10, 10), and for y-axis at (width, height-10).
 		svg.append('text')
 			.attr('x', 10)
 			.attr('y', 10)
 			.attr('class', 'label')
 			.text('Número de Bibliotecas');
-
 
 		svg.append('text')
 			.attr('x', width)
@@ -212,6 +182,7 @@ div.tooltip {
 			.data(colorScale.domain())
 			.enter().append('g')
 			.attr('class', 'legend')
+			.append('text').text('Click en cada region para resaltar')
 			.attr('transform', function(d,i){ return 'translate(0,' + i * 20 + ')'; });
 
 		// give x value equal to the legend elements. 
@@ -231,7 +202,6 @@ div.tooltip {
 			.style('text-anchor', 'end')
 			.text(function(d){ return d; });
 
-
 		// d3 has a filter fnction similar to filter function in JS. Here it is used to filter d3 components.
 		legend.on('click', function(type){
 			d3.selectAll('.bubble')
@@ -240,9 +210,7 @@ div.tooltip {
 					return d.Region == type;
 				})
 				.style('opacity', 1);
-		})
-		
-		
+		})		
 	});
 
 </script>
