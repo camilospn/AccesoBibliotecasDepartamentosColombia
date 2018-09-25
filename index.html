@@ -86,7 +86,7 @@
 		.scale(yScale);
 
 	// again scaleOrdinal
-	var color = d3.scaleOrdinal.range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
+	var colorScale = d3.scaleOrdinal().range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
 	//const colors = d3.scaleOrdinal.range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
 
 	d3.dsv(",", "datos.csv", function(d) {
@@ -113,6 +113,10 @@
 		yScale.domain(d3.extent(data, function(d){
 			return d.Bibliotecas;
 		})).nice();
+		
+		colorScale.domain(d3.extent(data, function(d){
+			return d.Region;
+		})).nice()
 
 		//radius.domain(d3.extent(data, function(d){
 			//return d.PetalLength;
@@ -138,7 +142,7 @@
 			.attr('cx', function(d){return xScale(d.Habitantes);})
 			.attr('cy', function(d){ return yScale(d.Bibliotecas); })
 			.attr('r', function(d){ return 8; })
-			.style('fill', function(d){ return color(d.Region); });
+			.style('fill', function(d){ return colorScale(d.Region); });
 
 		bubble.append('title')
 			//.attr('x', function(d){ return radius(d.PetalLength); })
@@ -164,7 +168,7 @@
 		// I feel I understand legends much better now.
 		// define a group element for each color i, and translate it to (0, i * 20). 
 		var legend = svg.selectAll('legend')
-			.data(color.domain())
+			.data(colorScale.domain())
 			.enter().append('g')
 			.attr('class', 'legend')
 			.attr('transform', function(d,i){ return 'translate(0,' + i * 20 + ')'; });
@@ -175,7 +179,7 @@
 			.attr('x', width)
 			.attr('width', 18)
 			.attr('height', 18)
-			.style('fill', color);
+			.style('fill', colorScale);
 
 		// add text to the legend elements.
 		// rects are defined at x value equal to width, we define text at width - 6, this will print name of the legends before the rects.
