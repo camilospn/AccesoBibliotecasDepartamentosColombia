@@ -86,7 +86,7 @@
 		.scale(yScale);
 
 	// again scaleOrdinal
-	var colorScale = d3.scaleOrdinal(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
+	var colorScale = d3.scaleOrdinal(["#AC30C0", "#A07A19", "#EB9A72", "#BA86F5", "#EA22A8"]);
 	//const colors = d3.scaleOrdinal.range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
 
 	d3.dsv(",", "datos.csv", function(d) {
@@ -155,7 +155,7 @@
 			.attr('x', 10)
 			.attr('y', 10)
 			.attr('class', 'label')
-			.text('Bibliotecas');
+			.text('Número de Bibliotecas');
 
 
 		svg.append('text')
