@@ -69,7 +69,11 @@
 		.buttonR {
 			font-size: 13px;
 			fill: #333;
-			background-color: #FFFF00;
+			background-color: red;
+			color: white;
+			padding: 1em 1.5em;
+			text-decoration: none;
+			text-transform: uppercase;
 		}
 		
 	</style>
@@ -207,28 +211,16 @@
 			.style('text-anchor', 'end')
 			.text(function(d){ return d; });
 
-		//boton para reestablecer
-		//d3.select('legend:nth-child(3)')
-			//.append('text')
-			//.attr('x', width - 6)
-			//.attr('y', 9)
-			//.attr('dy', '.35em')
-			//.style('text-anchor', 'end')
-			//.text('pex');
-			
+		//boton para reestablecer			
 		svg.append('text')
 			.attr('x', width)
-			.attr('y', height - 300)
+			.attr('y', height - 320)
 			.attr('text-anchor', 'end')
 			.attr('class', 'buttonR')
 			.text('Reestablecer') 	// quitar el filtro
 			.on('click', function(type){
 			d3.selectAll('.bubble')
 				.style('opacity', 1);
-				//.filter(function(d){
-					//return d.Region == type;
-				//})
-				//.style('opacity', 1);
 		})
 			
 		// d3 has a filter fnction similar to filter function in JS. Here it is used to filter d3 components.
