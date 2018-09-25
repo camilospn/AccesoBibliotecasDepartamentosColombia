@@ -182,7 +182,6 @@
 			.data(colorScale.domain())
 			.enter().append('g')
 			.attr('class', 'legend')
-			.append('text').text('Click en cada region para resaltar')
 			.attr('transform', function(d,i){ return 'translate(0,' + i * 20 + ')'; });
 
 		// give x value equal to the legend elements. 
