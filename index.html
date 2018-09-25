@@ -86,7 +86,7 @@
 		.scale(yScale);
 
 	// again scaleOrdinal
-	var colorScale = d3.scaleOrdinal().range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
+	var colorScale = d3.scaleOrdinal(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
 	//const colors = d3.scaleOrdinal.range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8"]);
 
 	d3.dsv(",", "datos.csv", function(d) {
@@ -114,9 +114,9 @@
 			return d.Bibliotecas;
 		})).nice();
 		
-		colorScale.domain(d3.extent(data, function(d){
-			return d.Region;
-		})).nice()
+		//colorScale.domain(d3.extent(data, function(d){
+			//return d.Region;
+		//})).nice()
 
 		//radius.domain(d3.extent(data, function(d){
 			//return d.PetalLength;
