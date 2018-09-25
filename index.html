@@ -209,14 +209,14 @@
 		//boton para reestablecer			
 		svg.append('rect')
 			.attr('x', width - 100)
-			.attr('y', height - 330)
+			.attr('y', height - 280)
 			.attr('width', 118)
 			.attr('height', 30)
 			.style('fill', '#c7d9e8');
 
 		svg.append('text')
 			.attr('x', width)
-			.attr('y', height - 310)
+			.attr('y', height - 260)
 			.attr('text-anchor', 'end')
 			.attr('class', 'buttonR')
 			.text('Reestablecer') 	// quitar el filtro
@@ -224,6 +224,14 @@
 			d3.selectAll('.bubble')
 				.style('opacity', 1);
 		})
+		
+		//titulo de la leyenda
+		svg.append('text')
+			.attr('x', width)
+			.attr('y', height - 330)
+			.attr('text-anchor', 'end')
+			.attr('class', 'buttonR')
+			.text('Regiones de Colombia');
 		
 			
 		// d3 has a filter fnction similar to filter function in JS. Here it is used to filter d3 components.
