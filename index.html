@@ -201,6 +201,15 @@
 			.style('text-anchor', 'end')
 			.text(function(d){ return d; });
 
+		//boton para reestablecer
+		d3.select('legend:nth-child(3)')
+			.append('text')
+			.attr('x', width - 6)
+			.attr('y', 9)
+			.attr('dy', '.35em')
+			.style('text-anchor', 'end')
+			.text('pex');
+			
 		// d3 has a filter fnction similar to filter function in JS. Here it is used to filter d3 components.
 		legend.on('click', function(type){
 			d3.selectAll('.bubble')
